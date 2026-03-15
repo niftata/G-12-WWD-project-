@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bonafide International Schools</title>
+    <meta name="description" content="Get in touch with Bonafide International Schools in Hawassa, Ethiopia. We're here to answer your questions about admissions, academics, and more.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 76px;
+            color: #2c3e50;
+        }
+        
+        /* Navbar Styling */
+        .navbar-custom {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .navbar-brand i {
+            color: #fbbf24;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover i {
+            transform: rotate(20deg);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #fbbf24;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+        
+        .nav-link.active {
+            color: #fbbf24 !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            animation: float 15s infinite linear reverse;
+        }
+        
+        @keyframes float {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Contact Cards */
+        .contact-card {
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+        }
+        
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-card i.fa-location-dot,
+        .contact-card i.fa-phone,
+        .contact-card i.fa-envelope {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white !important;
+            font-size: 1.2rem !important;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover i.fa-location-dot,
+        .contact-card:hover i.fa-phone,
+        .contact-card:hover i.fa-envelope {
+            transform: scale(1.1) rotate(360deg);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+        
+        /* Office Hours Card */
+        .office-hours-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .office-hours-card::before {
+            content: '\f017';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 120px;
+            opacity: 0.1;
+            color: white;
+        }
+        
+        .office-hours-card ul {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .office-hours-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .office-hours-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .office-hours-card i {
+            color: #fbbf24;
+        }
+        
+        /* Form Styling */
+        .form-container {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            opacity: 0.03;
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control, .form-select {
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+        
+        .form-control:hover, .form-select:hover {
+            border-color: #94a3b8;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
+        }
+        
+        .btn-submit:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-submit i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-submit:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Stats Badge */
+        .stats-badge {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: none;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(245, 158, 11, 0.2);
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        
+        .stats-label {
+            color: #92400e;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.875rem;
+        }
+        
+        /* Map Container */
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 4px solid white;
+        }
+        
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            display: block;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) rotate(360deg);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+        }
+        
+        /* Footer */
+        .footer-custom {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 5rem;
+            position: relative;
+        }
+        
+        .footer-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .footer-copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            color: #94a3b8;
+        }
+        
+        /* Toast Notification */
+        .toast-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 9999;
+            border-left: 4px solid #10b981;
+        }
+        
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+        
+        .toast-icon {
+            width: 40px;
+            height: 40px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .toast-content h6 {
+            margin: 0;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .toast-content p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .page-header {
+                padding: 3rem 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .contact-card {
+                margin-bottom: 1rem;
+            }
+            
+            .stats-number {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                <i class="fas fa-graduation-cap me-2"></i>Bonafide Int. Schools
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="programs.html">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="library.html">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schedule.html">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="ContactUs.html">Contact</a></li>
+                </ul>
+                <a href="portal.html" class="btn btn-warning ms-3 rounded-pill px-4 fw-bold">
+                    <i class="fas fa-user-graduate me-2"></i>Student Portal
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill">
+                        <i class="fas fa-phone-alt me-2"></i>Get in Touch
+                    </span>
+                    <h1 class="display-4 fw-bold">We'd Love to Hear From You</h1>
+                    <p class="lead">Have questions about admissions, academics, or anything else? Our team is ready to provide the answers you need.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Contact Stats -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="stats-badge">
+                    <div class="stats-number">24/7</div>
+                    <div class="stats-label">Support</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="stats-badge">
+                    <div class="stats-number">15min</div>
+                    <div class="stats-label">Response Time</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="stats-badge">
+                    <div class="stats-number">5+</div>
+                    <div class="stats-label">Languages</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="stats-badge">
+                    <div class="stats-number">98%</div>
+                    <div class="stats-label">Satisfaction</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-5">
+            <!-- Left Column - Contact Info -->
+            <div class="col-lg-5">
+                <div data-aos="fade-right">
+                    <h2 class="fw-bold mb-4" style="color: #1e3a8a;">Contact Information</h2>
+                    
+                    <!-- Contact Card -->
+                    <div class="card contact-card shadow p-4 mb-4">
+                        <div class="d-flex align-items-start mb-4">
+                            <i class="fas fa-location-dot fa-2x me-3"></i>
+                            <div>
+                                <h5 class="mb-1 fw-bold">Visit Us</h5>
+                                <p class="text-muted mb-0">Hawassa Industry Zone Street<br>near BNB Condominium/Haile Resort<br>Hawassa, Ethiopia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <i class="fas fa-phone fa-2x me-3"></i>
+                            <div>
+                                <h5 class="mb-1 fw-bold">Call Us</h5>
+                                <p class="text-muted mb-0">
+                                    <a href="tel:+251462125487" class="text-decoration-none text-muted">+251 46 212 5487</a><br>
+                                    <a href="tel:+251912707070" class="text-decoration-none text-muted">+251 91 270 7070</a><br>
+                                    <small class="text-primary">(24/7 Support Available)</small>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-envelope fa-2x me-3"></i>
+                            <div>
+                                <h5 class="mb-1 fw-bold">Email Us</h5>
+                                <p class="text-muted mb-0">
+                                    <a href="mailto:info@bonafideschool.com" class="text-decoration-none text-muted">info@bonafideschool.com</a><br>
+                                    <a href="mailto:admissions@bonafideschool.com" class="text-decoration-none text-muted">admissions@bonafideschool.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Hours -->
+                    <div class="card office-hours-card shadow p-4 mb-4">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-clock me-2"></i>Office Hours</h5>
+                        <ul class="list-unstyled mb-3">
+                            <li><i class="fas fa-check-circle me-2 text-warning"></i> Monday - Friday: 8:00 AM - 5:00 PM</li>
+                            <li><i class="fas fa-check-circle me-2 text-warning"></i> Saturday: 9:00 AM - 12:00 PM</li>
+                            <li><i class="fas fa-times-circle me-2 text-warning"></i> Sunday: Closed</li>
+                        </ul>
+                        <p class="mb-0 small opacity-75"><i class="fas fa-info-circle me-1"></i> Holiday hours may vary</p>
+                    </div>
+
+                    <!-- Social Links -->
+                    <h5 class="fw-bold mb-3">Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Contact Form -->
+            <div class="col-lg-7">
+                <div class="form-container" data-aos="fade-left">
+                    <h2 class="fw-bold mb-4" style="color: #1e3a8a;">Send Us a Message</h2>
+                    <p class="text-muted mb-4">Fill out the form below and we'll get back to you within 24 hours.</p>
+                    
+                    <form id="contactForm">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                                <div class="invalid-feedback">Please enter your name</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                                <div class="invalid-feedback">Please enter a valid email</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="+251 91 234 5678">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Subject <span class="text-danger">*</span></label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="" selected disabled>Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="admissions">Admissions Question</option>
+                                    <option value="transcript">Transcript Request</option>
+                                    <option value="employment">Employment Opportunity</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a subject</div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Message <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="message" rows="6" placeholder="How can we help you?" required></textarea>
+                                <div class="invalid-feedback">Please enter your message</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Subscribe to our newsletter for updates and news
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn-submit w-100" id="submitBtn">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    <span class="spinner d-none" id="spinner"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="row mt-5">
+            <div class="col-12" data-aos="zoom-in">
+                <h2 class="fw-bold mb-4 text-center" style="color: #1e3a8a;">Find Us Here</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31900.123456789!2d38.456789!3d7.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDcnMjQuNCJOIDM4wrAyNyc0NS4yIkU!5e0!3m2!1sen!2set!4v1234567890!5m2!1sen!2set" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="School Location Map">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="fw-bold mb-4 text-center" style="color: #1e3a8a;">Frequently Asked Questions</h2>
+                <div class="row g-4">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card contact-card shadow p-4">
+                            <h5><i class="fas fa-question-circle text-warning me-2"></i>What are the admission requirements?</h5>
+                            <p class="text-muted mb-0">Admission requirements include completed application, previous academic records, entrance assessment, and an interview with parents.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card contact-card shadow p-4">
+                            <h5><i class="fas fa-question-circle text-warning me-2"></i>Do you offer scholarships?</h5>
+                            <p class="text-muted mb-0">Yes, we offer merit-based and need-based scholarships. Contact our admissions office for more information.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card contact-card shadow p-4">
+                            <h5><i class="fas fa-question-circle text-warning me-2"></i>What are the school fees?</h5>
+                            <p class="text-muted mb-0">School fees vary by grade level. Please contact our finance office for a detailed breakdown.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card contact-card shadow p-4">
+                            <h5><i class="fas fa-question-circle text-warning me-2"></i>How can I schedule a campus tour?</h5>
+                            <p class="text-muted mb-0">You can schedule a tour by calling our office or using the contact form above with "Campus Tour" as the subject.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastNotification">
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-content">
+            <h6>Message Sent!</h6>
+            <p>We'll get back to you within 24 hours.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="text-warning mb-3">Bonafide Int. Schools</h5>
+                    <p class="text-white-50">Providing quality education since 2001. We nurture integrity, curiosity, and global perspective in every student.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white mb-3">Quick Links</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="AboutUs.html">About Us</a></li>
+                        <li class="mb-2"><a href="programs.html">Programs</a></li>
+                        <li class="mb-2"><a href="teachers.html">Teachers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6 class="text-white mb-3">Resources</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="library.html">Library</a></li>
+                        <li class="mb-2"><a href="schedule.html">Schedule</a></li>
+                        <li class="mb-2"><a href="portal.html">Student Portal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6 class="text-white mb-3">Contact Info</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i>Hawassa, Ethiopia</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i>+251 46 212 5487</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i>info@bonafideschool.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright text-center">
+                <p class="mb-0">&copy; 2025 Bonafide International Schools. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Check form validity
+            if (!this.checkValidity()) {
+                e.stopPropagation();
+                this.classList.add('was-validated');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            const spinner = document.getElementById('spinner');
+            const btnText = submitBtn.innerHTML;
+            
+            submitBtn.disabled = true;
+            spinner.classList.remove('d-none');
+            submitBtn.innerHTML = 'Sending <span class="spinner"></span>';
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Hide loading state
+                submitBtn.disabled = false;
+                spinner.classList.add('d-none');
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane me-2"></i>Send Message';
+
+                // Show success toast
+                const toast = document.getElementById('toastNotification');
+                toast.classList.add('show');
+
+                // Hide toast after 5 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+
+                // Reset form
+                this.reset();
+                this.classList.remove('was-validated');
+            }, 1500);
+        });
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,2})(\d{0,2})(\d{0,2})/);
+            e.target.value = !x[2] ? x[1] : '+' + x[1] + ' ' + x[2] + (x[3] ? ' ' + x[3] : '') + (x[4] ? ' ' + x[4] : '');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
